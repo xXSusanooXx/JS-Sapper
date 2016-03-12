@@ -1,0 +1,44 @@
+
+body{
+	background-color: black;
+	color:black;
+}
+
+.field{
+	margin: auto;
+	margin-top: 120px;
+	margin-bottom: 120px;
+	border: 3px solid grey;
+}
+
+.conteiner{
+	text-align: center;
+}
+
+input{
+	width: 30px;
+	height: 30px;
+	text-align: center;
+}
+.activeted-mine{
+	background-color: red;
+} 
+.hide-mine{
+
+}
+
+.marked-mine{
+	background-color: yellow;
+}
+
+.safe-cell{
+	color:green;
+
+}
+
+.blank-cell{
+
+}
+
+
+
