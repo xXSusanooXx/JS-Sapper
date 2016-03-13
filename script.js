@@ -21,8 +21,9 @@ for(var i=0;i<nOfCells;i++)
 	}
 	else
 	{
-		//cell.onclick=clickOnSafeCell;
+		cell.onclick=clickOnSafeCell;
 	}
+
 }
 
 function getRandomInt(min, max){
@@ -38,11 +39,11 @@ function clickOnMine(){
 	}
 	alert('Game Over');
 }
-function clickOnSafeCell(cell){
+function clickOnSafeCell(){
 	var nOfMines = 0;
 	for(var i=0;i<3;i++)
 	{
-		var element=document.getElementById(cell.id-11+i);
+		var element=document.getElementById(parseInt(this.id)-11+i);
 		if(element.classList.contains('hide-mine'))
 		{
 			nOfMines++;
@@ -50,22 +51,22 @@ function clickOnSafeCell(cell){
 	}
 	for(var i=0;i<3;i++)
 	{
-		var element=document.getElementById(cell.id+9+i);
+		element=document.getElementById(parseInt(this.id)+9+i);
 		if(element.classList.contains('hide-mine'))
 		{
 			nOfMines++;
 		}
 	}
-	var element = document.getElementById(cell.id-1);
+		element = document.getElementById(parseInt(this.id)-1);
 	if(element.classList.contains('hide-mine'))
 	{
 		nOfMines++;
 	}
-	element=document.getElementById(cell.id+1);
+		element=document.getElementById(parseInt(this.id)+1);
 	if(element.classList.contains('hide-mine'))
 	{
 		nOfMines++;
 	}
-	cell.value=nOfMines;
+	this.value=nOfMines;
 
 }
