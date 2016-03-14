@@ -1,47 +1,10 @@
-var field=document.getElementById("field");
-
-var nOfCellsInRow=15,
-	nOfCellsInColumn=10,
-	widthOfCell=30;
-
-var totalNumberOfCells=nOfCellsInColumn*nOfCellsInRow;
-
-field.style.width=nOfCellsInRow*widthOfCell;
-field.style.height=nOfCellsInColumn*widthOfCell;
-
-for(var i=1;i<=totalNumberOfCells;i++)
-{
-	var cell = document.createElement('input'); 
-	cell.type = 'submit';
-	cell.id=i;
-	cell.className='cell';
-	cell.value='';
-	field.appendChild(cell);
-	var r=getRandomInt(1,6);
-	if(r===1)
-	{
-		cell.classList.add('hide-mine');
-		cell.onclick=clickOnMine;
-	}
-}/*
-for(var i=0;i<4;i++)
-{
-	var element=document.getElementById(46+i);
-	element.classList.add('hide-mine');
-	element.onclick=clickOnMine;
-}
-for(var i=0;i<3;i++)
-{
-	var element=document.getElementById(4+i*nOfCellsInRow);
-	element.classList.add('hide-mine');
-	element.onclick=clickOnMine;
-}*/
 var topCells=[],
 	bottomCells=[],
 	leftCells=[],
 	rightCells=[];
 
 setBorderCells();
+
 function setBorderCells(){
 	for(var i=1;i<=nOfCellsInRow;i++)
 	{
@@ -54,13 +17,92 @@ function setBorderCells(){
 		rightCells[i-1]=nOfCellsInRow*(i+1);
 	}
 }
+
 for(var i=1;i<=totalNumberOfCells;i++)
 {
-	var cell = document.getElementById(i); 
-	if(!cell.classList.contains('hide-mine'))
+	var cell = document.getElementById(i);
+	var r = getRandomInt(1,6);
+	if(r===1)
+	{
+		cell.onclick=clickOnMine;
+		cell.classList.add('hide-mine');
+	}
+	else
 	{
 		cell.onclick=clickOnSafeCell;
+		cell.classList.add('safe-cell');
 	}
+	cell.oncontextmenu=clickByRightButton;
+}
+function clickOnMine(){
+	if(!this.classList.contains('marked-cell'))
+	{
+		var mines=document.getElementsByClassName('hide-mine');
+		for(var i=0;i<mines.length;i++)
+		{
+			mines[i].classList.add('activeted-mine');
+		}
+		alert('Game Over!');
+	}
+}
+
+function clickOnSafeCell(){
+	if(!this.classList.contains('marked-cell'))
+	{
+		var cells=getNearingCells(this);
+		var value=getNumberOfMines(cells);
+		this.classList.add('clicked');
+		if(value===0)
+		{
+			for(var i=0;i<cells.length;i++)
+			{
+				if(!cells[i].classList.contains('clicked'))
+				{
+				cells[i].onclick();
+				}
+			}
+		}
+		else
+		{	
+			color(this,value);
+			this.value=value;
+		}
+		this.onclick=null;
+	}
+	function color(element,value){
+		switch(value)
+		{
+			case 1:
+				element.classList.add('one');
+				break;
+			case 2:
+				element.classList.add('two');
+				break;
+			case 3:
+				element.classList.add('three');
+				break;
+			default:;	
+		}
+	}
+}
+
+function clickByRightButton(){
+	if(!this.classList.contains('clicked'))
+	{
+		if(!this.classList.contains('marked-cell'))
+		{	
+			this.classList.add('marked-cell');
+			this.value='•';
+		}
+		else
+		{
+			this.classList.remove('marked-cell');
+			this.value='';
+		}
+		
+
+	}
+	return false;
 }
 
 function getNearingCells(whoCalls){
@@ -135,42 +177,11 @@ function getNearingCells(whoCalls){
 	}
 	return getAllNearingCells(whoCalls);
 }
+
 function getRandomInt(min, max){
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function clickOnMine(){
-	var mines=document.getElementsByClassName('hide-mine');
-	for(var i=0;i<mines.length;i++)
-	{
-		mines[i].classList.add('activeted-mine');
-		mines[i].disable='disabled';
-	}
-	this.classList.add('clicked');
-	alert('Game Over');
-}
-function clickByWheel(){
-
-}
-function clickOnSafeCell(){
-	var cells=getNearingCells(this);
-	var value=getNumberOfMines(cells);
-	this.classList.add('clicked');
-	if(value===0)
-	{
-		this.value=value;
-		for(var i=0;i<cells.length;i++)
-		{
-			if(!cells[i].classList.contains('clicked'))
-			{
-			cells[i].onclick();
-			}
-		}
-		
-	}
-	this.value=value;	
-	
-}
 function getNumberOfMines(ar){
 	var nOfMines=0;
 	for(var i=0;i<ar.length;i++)
@@ -182,6 +193,7 @@ function getNumberOfMines(ar){
 	}
 	return nOfMines;
 }
+
 function getAllNearingCells(whoCalls){
 	var id=parseInt(whoCalls.id);
 	var cells=[];
