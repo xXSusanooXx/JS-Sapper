@@ -6,8 +6,8 @@ body{
 
 .field{
 	margin: auto;
-	margin-top: 120px;
-	margin-bottom: 120px;
+	margin-top:10px;
+	
 	border: 2px solid black;
 }
 
@@ -16,9 +16,23 @@ body{
 }
 
 .top-conteiner{
-	text-align: center;
 	margin: auto;
+	margin-top: 120px;
+	text-align: center;
 
+}
+#timer,#mines,#new-game{
+	width:50px;"
+}
+
+#timer{
+	float: left; 
+}
+
+#mines{
+	float: right; 
+}
+#new-game{
 
 }
 

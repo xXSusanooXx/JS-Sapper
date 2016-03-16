@@ -3,13 +3,14 @@ var field=document.getElementById("field");
 var topCont=document.getElementById("top-conteiner");
 
 
-var nOfCellsInRow=20,
+var nOfCellsInRow=21,
 	nOfCellsInColumn=15,
 	widthOfCell=25;
 
 
 var totalNumberOfCells=nOfCellsInColumn*nOfCellsInRow;
 
+topCont.style.width=widthOfCell*nOfCellsInRow;
 
 field.style.width=nOfCellsInRow*widthOfCell;
 field.style.height=nOfCellsInColumn*widthOfCell;
