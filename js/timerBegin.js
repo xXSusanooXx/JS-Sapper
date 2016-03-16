@@ -6,5 +6,4 @@ function timerBegin(){
   	el.value=parseInt(el.value)+1;
 	}, 1000);
 	this.id=timerId;
-	
 }

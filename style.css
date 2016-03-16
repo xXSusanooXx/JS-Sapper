@@ -7,10 +7,17 @@ body{
 .field{
 	margin: auto;
 	margin-top:10px;
-	
 	border: 2px solid black;
 }
-
+.roof{
+	background-color: white;
+	opacity: 0.3;
+	display: none;
+	margin: auto;
+	border: 2px solid black;
+	position: relative;
+	padding: 0;
+}
 .conteiner{
 	text-align: center;
 }
@@ -19,7 +26,6 @@ body{
 	margin: auto;
 	margin-top: 120px;
 	text-align: center;
-
 }
 #timer,#nOfMines,#new-game{
 	width:50px;
@@ -33,15 +39,12 @@ body{
 }
 #timer{
 	float: left; 
-
-}
-
+} 
 #nOfMines{
 	float: right; 
 }
 #new-game{
 	width: auto;
-
 }
 
 .cell{
@@ -51,8 +54,6 @@ body{
 	border: 1px solid black;
 	background-color: 34A83A;
 	outline: none;
-	border-collapse: collapse;
-
 }
 
 .cell:active{
@@ -64,7 +65,7 @@ opacity: 0.6;
 }
 
 .activeted-mine{
-	background-color: red;
+	background:url("icon.png");
 } 
 
 .hide-mine{
@@ -81,7 +82,8 @@ opacity: 0.6;
 }
 
 .clicked{
-background-color: DCFCD4;
+
+background-color: BEF0C0;
 }
 
 .clicked:hover{

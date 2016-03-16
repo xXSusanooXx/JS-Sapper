@@ -26,11 +26,7 @@ function createField(nOfCellsInRow,nOfCellsInColumn,widthOfCell) {
 }
 
 function cleanField(){
-	var field=document.getElementById("field");/*
-	for(var i=1;i<=nOfCellsInRow*nOfCellsInColumn;i++)
-	{
-		field.removeChild(document.getElementById(i));
-	}*/
+	var field=document.getElementById("field");
 	field.innerHTML='';
 }
 

@@ -59,7 +59,11 @@ function setOnClicks(nOfCellsInRow,nOfCellsInColumn){
 			{
 				mines[i].classList.add('activeted-mine');
 			}
-			alert('Game Over!');
+			var roof=document.getElementById('roof');
+			roof.style.display='block';
+			roof.style.width=nOfCellsInRow*widthOfCell;
+			roof.style.height=nOfCellsInColumn*widthOfCell;
+			//roof.style.bottom=nOfCellsInColumn*widthOfCell+3;
 		}
 	}
 
@@ -125,7 +129,7 @@ function setOnClicks(nOfCellsInRow,nOfCellsInColumn){
 	}
 
 	function getNearingCells(whoCalls){
-		id=parseInt(whoCalls.id);
+		var id=parseInt(whoCalls.id);
 		var cells=[];
 		if(topCells.indexOf(id)!==-1)
 		{
