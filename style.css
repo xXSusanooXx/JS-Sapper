@@ -21,18 +21,26 @@ body{
 	text-align: center;
 
 }
-#timer,#mines,#new-game{
-	width:50px;"
+#timer,#nOfMines,#new-game{
+	width:50px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 5px;
+	outline: none;
 }
-
+#timer:disabled,#nOfMines:disabled{
+	color:black;
+}
 #timer{
 	float: left; 
+
 }
 
-#mines{
+#nOfMines{
 	float: right; 
 }
 #new-game{
+	width: auto;
 
 }
 
@@ -73,7 +81,7 @@ opacity: 0.6;
 }
 
 .clicked{
-background-color: A9F3B0;
+background-color: DCFCD4;
 }
 
 .clicked:hover{
