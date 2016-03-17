@@ -100,7 +100,7 @@ opacity: 0.6;
 }
 
 .marked-cell{
-	background-color: yellow;
+	background:url("flag.png");
 }
 
 .safe-cell{
@@ -109,7 +109,6 @@ opacity: 0.6;
 }
 
 .clicked{
-
 background-color: BEF0C0;
 }
 

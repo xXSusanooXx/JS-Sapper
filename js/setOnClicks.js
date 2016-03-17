@@ -130,13 +130,13 @@ function setOnClicks(nOfCellsInRow,nOfCellsInColumn){
 			{	
 				numberOfMinesDecrement();
 				this.classList.add('marked-cell');
-				this.value='•';	
+					
 			}
 			else
 			{
 				numberOfMinesIncrement();
 				this.classList.remove('marked-cell');
-				this.value='';
+				
 			
 			}
 			
