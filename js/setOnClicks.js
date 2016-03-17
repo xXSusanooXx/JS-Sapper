@@ -1,10 +1,13 @@
 function setOnClicks(nOfCellsInRow,nOfCellsInColumn){
+
 	var topCells=[],
 	bottomCells=[],
 	leftCells=[],
 	rightCells=[];
 
 	var totalNumberOfCells=nOfCellsInColumn*nOfCellsInRow;
+
+	var clickedButtons=0;
 	
 	var nOfMines=0;
 
@@ -61,13 +64,25 @@ function setOnClicks(nOfCellsInRow,nOfCellsInColumn){
 			}
 			var roof=document.getElementById('roof');
 			roof.style.display='block';
-			roof.style.width=nOfCellsInRow*widthOfCell;
-			roof.style.height=nOfCellsInColumn*widthOfCell;
-			//roof.style.bottom=nOfCellsInColumn*widthOfCell+3;
+			roof.style.background='red';
+			clearInterval(window.id);
+			alert("You lose...:(");
+			
+
 		}
 	}
 
 	function clickOnSafeCell(){
+		clickedButtons++;
+		if(clickedButtons+nOfMines===totalNumberOfCells)
+		{
+			var roof=document.getElementById('roof');
+			roof.style.display='block';
+			roof.style.background='green';
+			clearInterval(window.id);
+			alert("YOU WIIIIIIIIIN!")
+			
+		}
 		if(!this.classList.contains('marked-cell'))
 		{
 			var cells=getNearingCells(this);
@@ -89,6 +104,7 @@ function setOnClicks(nOfCellsInRow,nOfCellsInColumn){
 				this.value=value;
 			}
 			this.onclick=null;
+
 		}
 		function color(element,value){
 			switch(value)
@@ -114,13 +130,14 @@ function setOnClicks(nOfCellsInRow,nOfCellsInColumn){
 			{	
 				numberOfMinesDecrement();
 				this.classList.add('marked-cell');
-				this.value='•';
+				this.value='•';	
 			}
 			else
 			{
 				numberOfMinesIncrement();
 				this.classList.remove('marked-cell');
 				this.value='';
+			
 			}
 			
 

@@ -10,32 +10,59 @@ body{
 	border: 2px solid black;
 }
 .roof{
-	background-color: white;
-	opacity: 0.3;
+	background-color: red;
+	opacity: 0.6;
 	display: none;
 	margin: auto;
 	border: 2px solid black;
 	position: relative;
 	padding: 0;
+	color:black;
 }
+
+
 .conteiner{
 	text-align: center;
 }
 
 .top-conteiner{
+	display: block;
 	margin: auto;
+	width:auto;
 	margin-top: 120px;
-	text-align: center;
+	vertical-align: bottom;
 }
-#timer,#nOfMines,#new-game{
+
+.bottom-conteiner{
+	padding: 10px;
+	padding-top: 0px;
+	display: block;
+	margin: auto;
+	width:auto;
+	margin-top: 12px;
+	
+}
+#game-over{
+	padding: 0px;
+	font-size: 30px;
+	color: black;
+	vertical-align: center;
+	text-align: center;
+
+}
+
+#timer,#nOfMines,#new-game,#beginner,#intermediate,#expert{
 	width:50px;
 	font-weight: bold;
 	text-align: center;
 	border-radius: 5px;
 	outline: none;
 }
+#beginner,#intermediate,#expert{
+	width:100px;
+}
 #timer:disabled,#nOfMines:disabled{
-	color:black;
+	color: black;
 }
 #timer{
 	float: left; 
