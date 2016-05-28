@@ -1,0 +1,133 @@
+
+body{
+	background-color: BEF0C0;
+	color:black;
+}
+
+.field{
+	margin: auto;
+	margin-top:10px;
+	border: 2px solid black;
+}
+.roof{
+	background-color: red;
+	opacity: 0.6;
+	display: none;
+	margin: auto;
+	border: 2px solid black;
+	position: relative;
+	padding: 0;
+	color:black;
+}
+
+
+.conteiner{
+	text-align: center;
+}
+
+.top-conteiner{
+	display: block;
+	margin: auto;
+	width:auto;
+	margin-top: 120px;
+	vertical-align: bottom;
+}
+
+.bottom-conteiner{
+	padding: 10px;
+	padding-top: 0px;
+	display: block;
+	margin: auto;
+	width:auto;
+	margin-top: 12px;
+	
+}
+#game-over{
+	padding: 0px;
+	font-size: 30px;
+	color: black;
+	vertical-align: center;
+	text-align: center;
+
+}
+
+#timer,#nOfMines,#new-game,#beginner,#intermediate,#expert{
+	width:50px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 5px;
+	outline: none;
+}
+#beginner,#intermediate,#expert{
+	width:100px;
+}
+#timer:disabled,#nOfMines:disabled{
+	color: black;
+}
+#timer{
+	float: left; 
+} 
+#nOfMines{
+	float: right; 
+}
+#new-game{
+	width: auto;
+}
+
+.cell{
+	font-weight: 700;
+	text-align: center;
+	vertical-align:top;
+	border: 1px solid black;
+	background-color: 34A83A;
+	outline: none;
+}
+
+.cell:active{
+background-color: A9F3B0;
+}
+
+.cell:hover{
+opacity: 0.6;
+}
+
+.activeted-mine{
+	background:url("icon.png");
+} 
+
+.hide-mine{
+
+}
+
+.marked-cell{
+	background:url("flag.png");
+}
+
+.safe-cell{
+	color:black;
+
+}
+
+.clicked{
+background-color: BEF0C0;
+}
+
+.clicked:hover{
+	opacity: 1;
+}
+
+.one{
+	color: 421CCC;
+}
+
+.two{
+	color:057F15;
+}
+
+.three{
+	color:C3171A;
+}
+
+
+
+
